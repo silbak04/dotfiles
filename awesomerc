@@ -10,8 +10,6 @@ require("naughty")
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
 beautiful.init("/usr/share/awesome/themes/default/theme.lua")
--- Background path (relative to home directory)
-bg_path = ".background.jpg"
 
 -- This is used later as the default terminal and editor to run.
 terminal = "terminator"
@@ -24,25 +22,26 @@ editor_cmd = terminal .. " -e " .. editor
 -- I suggest you to remap Mod4 to another key using xmodmap or other tools.
 -- However, you can use another modifier like Mod1, but it may interact with others.
 modkey = "Mod1"
+windkey = "Mod4"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 layouts =
 {
-    -- awful.layout.suit.floating,
+    awful.layout.suit.max,
     awful.layout.suit.tile,
     awful.layout.suit.tile.left,
     awful.layout.suit.tile.bottom,
-    awful.layout.suit.tile.top,
+    awful.layout.suit.tile.top
+    -- awful.layout.suit.floating,
     -- awful.layout.suit.fair,
     -- awful.layout.suit.fair.horizontal,
     -- awful.layout.suit.spiral,
     -- awful.layout.suit.spiral.dwindle,
-    awful.layout.suit.max
     -- awful.layout.suit.max.fullscreen,
     -- awful.layout.suit.magnifier
 }
 
--- Initialize previous layout to maximize
+--initialize layout to be maximized
 prev_layout = awful.layout.suit.max
 
 -- }}}
@@ -154,18 +153,18 @@ globalkeys = awful.util.table.join(
 
     awful.key({ modkey,           }, "j",
         function ()
-            awful.client.focus.byidx( 1)
+            awful.client.focus.byidx(-1)
             if client.focus then client.focus:raise() end
         end),
     awful.key({ modkey,           }, "k",
         function ()
-            awful.client.focus.byidx(-1)
+            awful.client.focus.byidx(1)
             if client.focus then client.focus:raise() end
         end),
 
     -- Layout manipulation
-    awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end),
-    awful.key({ modkey, "Shift"   }, "k", function () awful.client.swap.byidx( -1)    end),
+    awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx( -1)    end),
+    awful.key({ modkey, "Shift"   }, "k", function () awful.client.swap.byidx(  1)    end),
     awful.key({ modkey, "Control" }, "j", function () awful.screen.focus_relative( 1) end),
     awful.key({ modkey, "Control" }, "k", function () awful.screen.focus_relative(-1) end),
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto),
@@ -208,6 +207,9 @@ globalkeys = awful.util.table.join(
     awful.key({ "Control", "Shift" }, "Right", function() awful.util.spawn("ncmpcpp next") end),
     awful.key({ "Control", "Shift" }, "Up", function() awful.util.spawn("ncmpcpp toggle") end),
     
+    awful.key({ "Control",        }, "Right", function() awful.util.spawn("amixer set Master playback 1+") end),
+    awful.key({ "Control",        }, "Left", function() awful.util.spawn("amixer set Master playback 1-") end),
+        
     awful.key({}, "XF86AudioMute", function() awful.util.spawn("amixer set Master toggle") end),
     awful.key({}, "XF86AudioRaiseVolume", function() awful.util.spawn("amixer set Master 5%+ unmute") end),
     awful.key({}, "XF86AudioLowerVolume", function() awful.util.spawn("amixer set Master 5%- unmute") end),
@@ -217,9 +219,13 @@ globalkeys = awful.util.table.join(
 
 )
 
+    --enable numlock
+    awful.util.spawn_with_shell("numlockx on")
+    --disable screen saver
+    --awful.util.spawn_with_shell("xset s noblank")
+
 clientkeys = awful.util.table.join(
     awful.key({ modkey,           }, "c",      function (c) c:kill()                         end),
-    awful.key({ modkey,           }, "F4",      function (c) c:kill()                         end),
     awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ),
     awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end),
     awful.key({ modkey,           }, "o",      awful.client.movetoscreen                        ),
@@ -351,11 +357,5 @@ end)
 client.add_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.add_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
-
--- {{{ Background
-for s = 1, screen.count() do
-    awful.util.spawn("awsetbg "..os.getenv("HOME").."/"..bg_path, false, s)
-end
---- }}}
 
 -- vim: set filetype=lua:

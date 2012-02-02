@@ -13,20 +13,22 @@ set tabstop=4
 " (Auto)indent uses 2 characters
 set shiftwidth=4
 set softtabstop=4
-set smartindent
 
 " spaces instead of tabs
 set expandtab
 
 " guess indentation
 set autoindent
-set smartindent
+" set smartindent
 
 " don't reset cursor to start of line when moving around
 set nostartofline
 
 " show line numbers
 set number
+
+" better when pasting text into vim
+set pastetoggle=<F2>
 
 " Fold using markers "{{{
 " like this"}}}
@@ -126,6 +128,8 @@ if bufwinnr(1)
     map + <C-W>+
     map - <C-W>-
 endif
+
+set nowrap
 
 " better split switching
 map <C-j> <C-W>j
