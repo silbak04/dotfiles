@@ -1,46 +1,47 @@
-autoload zmv
-autoload -U colors &&  colors
+autoload -U colors && colors
 
-eval $( dircolors -b $HOME/.ls_colors/LS_COLORS )
-
-export PYTHONSTARTUP="$HOME/.pythonrc"
-
+eval $( dircolors -b $HOME/.ls_colors/LS_COLORS/LS_COLORS )
+  
 #{{{ Tab completion
 
 autoload -Uz compinit && compinit
 
 # color partial completions
 zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:t)(?)*==34=0}:${(s.:.)LS_COLORS}")';
-
-# add user scripts to path
-PATH="${HOME}/.scripts/:${PATH}"
-
-# add sbin to PATH so sudo can tab complete it
-PATH="/sbin/:/usr/sbin/:${PATH}"
+#zstyle ':completion::complete:*' use-cache 1
 
 # tab complete known hosts
-hosts=(`sed 's/\[\|\]\| .*//g;s/,/\n/g;s/:.*$//g' .ssh/known_hosts | sort | uniq | tr '\n' ' '`)
+hosts=(`sed 's/\[\|\]\| .*//g;s/,/\n/g;s/:.*$//g' ~/.ssh/known_hosts | sort | uniq | tr '\n' ' '`)
 zstyle ':completion:*:hosts' hosts $hosts
 
+#add sbin to PATH so sudo can tab complete it
+#PATH="/sbin/:/usr/sbin/:${PATH}"
+export PATH="/sbin/:/usr/sbin/:/usr/lib/distcc/bin:/home/pwner/scripts/:/opt/Xilinx/12.4/ISE_DS/ISE/bin/lin:${PATH}"
+export ROOTPATH="/opt/Xilinx/12.4/ISE_DS/ISE/bin/lin:${ROOTPATH}"
+export PYTHONSTARTUP="/home/pwner/.pythonrc"
+ 
 #}}}
 
 #{{{ Aliases
 
-alias ssh_server='ssh pwner@durknation.gotdns.com -p69'
-alias ssh_router='ssh admin@router'
-alias ssh_home='ssh user@bear24rw.gotdns.com -p 44'
-alias ssh_school='ssh thrunml@ucfilespace.uc.edu'
-alias ssh_tv='ssh media@durknation.gotdns.com -p337'
+alias ssh_home='ssh samir@silbak04.gotdns.com -p 1337'
+alias ssh_server='ssh pwner@durknation.gotdns.com -p 69'
+alias ssh_media='ssh media@durknation.gotdns.com -p 337'
+alias ssh_uc='ssh silbaksr@ucfilespace.uc.edu'
 
-alias mount_server='sshfs -p69 -o reconnect -o follow_symlinks pwner@durknation.gotdns.com:/ ~/mnt/server'
-alias mount_home='sshfs -p44 -o reconnect -o follow_symlinks user@bear24rw.gotdns.com:/ ~/.mnt/backup'
-alias mount_desktop='sshfs -p44 -o reconnect -o follow_symlinks user@bear24rw.com:/ ~/mnt/desktop'
+alias media_proxy='ssh -D 1025 media@durknation.gotdns.com -p 337' 
 
+#alias mount_server='sshfs -p 69 -o TCPKeepAlive=yes pwner@durknation.gotdns.com:/mnt/ /home/pwner/Desktop/media'
+alias mount_server='sshfs -p 69 -o reconnect -o follow_symlinks pwner@durknation.gotdns.com:/mnt/ /home/pwner/Desktop/media'
+
+alias cpv='rsync -poghb --backup-dir=/tmp/rsync -e /dev/null --progress --'
 alias ls='ls --group-directories-first --color=auto -X -h'
-alias ll='ls -l'
-alias rrsync='rsync -avz --stats --progress'
+alias rsync='rsync -avz --stats --progress'
 alias grep='grep --color'
-
+alias ll='ls -l'
+alias la='ls -la'
+alias less='/usr/share/vim/vim73/macros/less.sh'
+alias redshift='redshift -l 39.125231:-84.529038 -t 5500:3700 -g 0.8 -m vidmode -v'
 #}}}
 
 #{{{ Options
@@ -72,9 +73,29 @@ unsetopt EQUALS
 
 #{{{ Key bindings
 
+#autoload zkbd
+#[[ ! -f ${ZDOTDIR:-$HOME}/.zkbd/$TERM-$VENDOR-$OSTYPE ]] && zkbd
+#source ${ZDOTDIR:-$HOME}/.zkbd/$TERM-$VENDOR-$OSTYPE
+#
+#[[ -n ${key[Backspace]} ]] && bindkey "${key[Backspace]}" backward-delete-char
+#[[ -n ${key[Insert]} ]] && bindkey "${key[Insert]}" overwrite-mode
+#[[ -n ${key[Home]} ]] && bindkey "${key[Home]}" beginning-of-line
+#[[ -n ${key[PageUp]} ]] && bindkey "${key[PageUp]}" up-line-or-history
+#[[ -n ${key[Delete]} ]] && bindkey "${key[Delete]}" delete-char
+#[[ -n ${key[End]} ]] && bindkey "${key[End]}" end-of-line
+#[[ -n ${key[PageDown]} ]] && bindkey "${key[PageDown]}" down-line-or-history
+#[[ -n ${key[Up]} ]] && bindkey "${key[Up]}" up-line-or-search
+#[[ -n ${key[Left]} ]] && bindkey "${key[Left]}" backward-char
+#[[ -n ${key[Down]} ]] && bindkey "${key[Down]}" down-line-or-search
+#[[ -n ${key[Right]} ]] && bindkey "${key[Right]}" forward-char
+
 # home / end keys
-bindkey '\e[1~' beginning-of-line
-bindkey '\e[4~' end-of-line
+bindkey "^[OH" beginning-of-line
+bindkey "^[OF" end-of-line
+bindkey "^[[2~" quoted-insert
+bindkey "^[[3~" delete-char
+bindkey "^[[5~" beginning-of-history
+bindkey "^[[6~" end-of-history
 
 #}}}
 
@@ -101,7 +122,10 @@ setopt HIST_IGNORE_SPACE
 setopt HIST_NO_STORE
 
 # don't execute a history expansion, just show it
-setopt HIST_VERIFY
+#setopt HIST_VERIFY
+
+# auto-correction
+#setopt correctall
 
 #}}}
 
