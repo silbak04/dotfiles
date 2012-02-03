@@ -1,6 +1,6 @@
 autoload -U colors && colors
 
-eval $( dircolors -b $HOME/.ls_colors/LS_COLORS/LS_COLORS )
+eval $( dircolors -b $HOME/.ls_colors/LS_COLORS )
   
 #{{{ Tab completion
 
