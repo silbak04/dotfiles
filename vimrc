@@ -77,6 +77,9 @@ set scrolloff=4
 " when buffer is brought to foregroup, remember undo history and marks
 set hidden
 
+" spell checker
+set spell
+
 " auto-detect the filetype
 filetype plugin indent on
 
