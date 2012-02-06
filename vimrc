@@ -80,6 +80,9 @@ set hidden
 " spell checker
 set spell
 
+" do not wrap long lines
+set nowrap
+
 " auto-detect the filetype
 filetype plugin indent on
 
@@ -132,7 +135,6 @@ if bufwinnr(1)
     map - <C-W>-
 endif
 
-set nowrap
 
 " better split switching
 map <C-j> <C-W>j
