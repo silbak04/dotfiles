@@ -76,7 +76,8 @@ unsetopt EQUALS
 #autoload zkbd
 #[[ ! -f ${ZDOTDIR:-$HOME}/.zkbd/$TERM-$VENDOR-$OSTYPE ]] && zkbd
 #source ${ZDOTDIR:-$HOME}/.zkbd/$TERM-$VENDOR-$OSTYPE
-#
+
+# use script to figure out special key bindings (i.e. homekey)
 #[[ -n ${key[Backspace]} ]] && bindkey "${key[Backspace]}" backward-delete-char
 #[[ -n ${key[Insert]} ]] && bindkey "${key[Insert]}" overwrite-mode
 #[[ -n ${key[Home]} ]] && bindkey "${key[Home]}" beginning-of-line
