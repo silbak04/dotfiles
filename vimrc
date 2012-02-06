@@ -78,7 +78,7 @@ set scrolloff=4
 set hidden
 
 " spell checker
-set spell
+"set spell
 
 " do not wrap long lines
 set nowrap
