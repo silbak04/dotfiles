@@ -35,12 +35,14 @@ alias media_proxy='ssh -D 1025 media@durknation.gotdns.com -p 337'
 alias mount_server='sshfs -p 69 -o reconnect -o follow_symlinks pwner@durknation.gotdns.com:/mnt/ /home/pwner/Desktop/media'
 
 alias cpv='rsync -poghb --backup-dir=/tmp/rsync -e /dev/null --progress --'
-alias ls='ls --group-directories-first --color=auto -X -h'
-alias rsync='rsync -avz --stats --progress'
+alias ls='ls --group-directories-first --color=auto -X -h -v'
 alias grep='grep --color'
 alias ll='ls -l'
 alias la='ls -la'
+
+alias rsync='rsync -avz --stats --progress'
 alias less='/usr/share/vim/vim73/macros/less.sh'
+
 alias redshift='redshift -l 39.125231:-84.529038 -t 5500:3700 -g 0.8 -m vidmode -v'
 #}}}
 
