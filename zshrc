@@ -40,9 +40,13 @@ alias grep='grep --color'
 alias ll='ls -l'
 alias la='ls -la'
 
+# start mplayer in fullscreen
+alias mplayer='mplayer -fs'
+
 alias rsync='rsync -avz --stats --progress'
 alias less='/usr/share/vim/vim73/macros/less.sh'
 
+# redshift to dim screen respect to time of day
 alias redshift='redshift -l 39.125231:-84.529038 -t 5500:3700 -g 0.8 -m vidmode -v'
 #}}}
 
