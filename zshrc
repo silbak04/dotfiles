@@ -35,9 +35,9 @@ alias media_proxy='ssh -D 1025 media@durknation.gotdns.com -p 337'
 alias mount_server='sshfs -p 69 -o reconnect -o follow_symlinks pwner@durknation.gotdns.com:/mnt/ /home/pwner/Desktop/media'
 
 alias cpv='rsync -poghb --backup-dir=/tmp/rsync -e /dev/null --progress --'
-alias ls='ls --group-directories-first --color=auto -X -h -v'
 alias grep='grep --color'
 alias egrep='egrep --color'
+alias ls='ls --group-directories-first --color=auto -X -h -v'
 alias ll='ls -l'
 alias la='ls -la'
 
