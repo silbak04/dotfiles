@@ -37,6 +37,7 @@ alias mount_server='sshfs -p 69 -o reconnect -o follow_symlinks pwner@durknation
 alias cpv='rsync -poghb --backup-dir=/tmp/rsync -e /dev/null --progress --'
 alias ls='ls --group-directories-first --color=auto -X -h -v'
 alias grep='grep --color'
+alias egrep='egrep --color'
 alias ll='ls -l'
 alias la='ls -la'
 
