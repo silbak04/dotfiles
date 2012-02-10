@@ -41,9 +41,10 @@ alias ls='ls --group-directories-first --color=auto -X -h -v'
 alias ll='ls -l'
 alias la='ls -la'
 
-# start mplayer in fullscreen
+# start mplayer in fullscreen mode
 alias mplayer='mplayer -fs'
 
+alias watch='watch --color'
 alias rsync='rsync -avz --stats --progress'
 alias less='/usr/share/vim/vim73/macros/less.sh'
 
