@@ -136,6 +136,8 @@ setopt HIST_NO_STORE
 # auto-correction
 #setopt correctall
 
+h() { if [ -z "$*" ]; then history 1; else history 1 | egrep "$@"; fi; }
+
 #}}}
 
 #{{{ VCS info in PS1
