@@ -50,6 +50,10 @@ alias less='/usr/share/vim/vim73/macros/less.sh'
 
 # redshift to dim screen respect to time of day
 alias redshift='redshift -l 39.125231:-84.529038 -t 5500:3700 -g 0.8 -m vidmode -v'
+
+alias lower='tr "[:upper:]" "[:lower:]"'
+alias upper='tr "[:lower:]" "[:upper:]"'
+
 #}}}
 
 #{{{ Options
