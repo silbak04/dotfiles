@@ -46,6 +46,7 @@ alias egrep='egrep --color'
 alias ls='ls --group-directories-first --color=auto -X -h -v'
 alias ll='ls -l'
 alias la='ls -la'
+alias df='df -h'
 
 # start mplayer in fullscreen mode
 alias mplayer='mplayer -fs'
