@@ -166,3 +166,6 @@ let g:SuperTabLongestEnhanced = 1
 let g:SuperTabLongestHighlight = 1
 
 highlight Pmenu ctermbg=238 gui=bold
+
+" Gundo toggle
+nnoremap <F5> :GundoToggle<CR>
