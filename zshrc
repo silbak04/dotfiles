@@ -24,7 +24,7 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;32'
 
 #add sbin to PATH so sudo can tab complete it
 #PATH="/sbin/:/usr/sbin/:${PATH}"
-export PATH="/opt/bin:/sbin/:/usr/sbin/:/usr/lib/distcc/bin:/home/pwner/scripts/:/opt/Xilinx/12.4/ISE_DS/ISE/bin/lin:${PATH}"
+export PATH="/sbin/:/usr/sbin/:/usr/lib/distcc/bin:/home/pwner/scripts/:/opt/Xilinx/12.4/ISE_DS/ISE/bin/lin:${PATH}"
 export ROOTPATH="/opt/Xilinx/12.4/ISE_DS/ISE/bin/lin:${ROOTPATH}"
 export PYTHONSTARTUP="/home/pwner/.pythonrc"
  
