@@ -11,6 +11,9 @@ require("naughty")
 -- Themes define colours, icons, and wallpapers
 beautiful.init("/usr/share/awesome/themes/default/theme.lua")
 
+--- Background path (relative to home directory)
+bg_path = ".background.jpg"
+
 -- This is used later as the default terminal and editor to run.
 terminal = "terminator"
 editor = os.getenv("EDITOR") or "vim"
@@ -357,5 +360,9 @@ end)
 client.add_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.add_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
+
+---{{{ Background
+awful.util.spawn("awsetbg "..os.getenv("HOME").."/"..bg_path, false, 1)
+---}}}
 
 -- vim: set filetype=lua:
