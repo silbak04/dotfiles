@@ -8,7 +8,15 @@ autoload -Uz compinit && compinit
 
 # color partial completions
 zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:t)(?)*==34=0}:${(s.:.)LS_COLORS}")';
-#zstyle ':completion::complete:*' use-cache 1
+
+# add user scripts to path
+PATH="${HOME}/.scripts:${PATH}:"
+
+# add user binaries to path
+PATH="${HOME}/.bin:${PATH}:"
+
+# add sbin to PATH so sudo can tab complete it
+PATH="${PATH}:/sbin:/usr/sbin:"
 
 # tab complete known hosts
 hosts=(`sed 's/\[\|\]\| .*//g;s/,/\n/g;s/:.*$//g' ~/.ssh/known_hosts | sort | uniq | tr '\n' ' '`)
@@ -24,9 +32,9 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;32'
 
 #add sbin to PATH so sudo can tab complete it
 #PATH="/sbin/:/usr/sbin/:${PATH}"
-export PATH="/sbin/:/usr/sbin/:/usr/lib/distcc/bin:/home/pwner/scripts/:/opt/Xilinx/12.4/ISE_DS/ISE/bin/lin:${PATH}"
-export ROOTPATH="/opt/Xilinx/12.4/ISE_DS/ISE/bin/lin:${ROOTPATH}"
-export PYTHONSTARTUP="/home/pwner/.pythonrc"
+#export PATH="/sbin/:/usr/sbin/:/usr/lib/distcc/bin:/home/pwner/scripts/:/opt/Xilinx/12.4/ISE_DS/ISE/bin/lin:${PATH}"
+#export ROOTPATH="/opt/Xilinx/12.4/ISE_DS/ISE/bin/lin:${ROOTPATH}"
+#export PYTHONSTARTUP="/home/pwner/.pythonrc"
  
 
 #}}}
