@@ -72,6 +72,9 @@ alias redshift='redshift -l 39.125231:-84.529038 -t 5500:3700 -g 0.8 -m vidmode 
 alias lower='tr "[:upper:]" "[:lower:]"'
 alias upper='tr "[:lower:]" "[:upper:]"'
 
+# program fpga chip
+alias fpga_prog='djtgcfg -d DOnbUsb prog -i 0 -f'
+
 #}}}
 
 #{{{ Options
