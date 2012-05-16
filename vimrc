@@ -92,6 +92,9 @@ set sidescrolloff=4
 " when buffer is brought to foregroup, remember undo history and marks
 set hidden
 
+" copy and paste across terminals
+set clipboard=unnamed
+
 " auto-detect the filetype
 filetype plugin indent on
 
