@@ -137,10 +137,10 @@ bindkey "^[[6~" end-of-history
 
 #{{{ History
 
-HISTFILE=~/.history
-
-SAVEHIST=10000
 HISTSIZE=10000
+SAVEHIST=10000
+# share history between users 
+HISTFILE=/home/pwner/.history
 
 # write after each command
 setopt INC_APPEND_HISTORY
