@@ -76,6 +76,8 @@ alias upper='tr "[:lower:]" "[:upper:]"'
 alias fpga_prog='djtgcfg -d DOnbUsb prog -i 0 -f'
 # program fpga basys2 chip
 alias fpga_bprog='djtgcfg prog -d Basys2 -i 0 -f'
+# quartus ide
+alias quartus='/opt/altera/12.0sp2/quartus/bin/quartus'
 
 #}}}
 
