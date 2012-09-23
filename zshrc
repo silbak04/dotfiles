@@ -18,6 +18,9 @@ PATH="${HOME}/.bin:${PATH}:"
 # add sbin to PATH so sudo can tab complete it
 PATH="${PATH}:/sbin:/usr/sbin:"
 
+# add path for quartus
+PATH="${PATH}:/opt/altera/quartus/bin:"
+
 # tab complete known hosts
 hosts=(`sed 's/\[\|\]\| .*//g;s/,/\n/g;s/:.*$//g' ~/.ssh/known_hosts | sort | uniq | tr '\n' ' '`)
 zstyle ':completion:*:hosts' hosts $hosts
