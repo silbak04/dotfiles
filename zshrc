@@ -20,6 +20,10 @@ PATH="${PATH}:/sbin:/usr/sbin:"
 
 # add path for quartus
 PATH="${PATH}:/opt/altera/quartus/bin:"
+PATH="/opt/altera/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin:${PATH}:"
+PATH="/opt/altera/nios2eds/sdk2/bin/:${PATH}:"
+PATH="/opt/altera/nios2eds/bin/:${PATH}:"
+PATH="/opt/altera/nios2eds/:${PATH}:"
 
 # tab complete known hosts
 hosts=(`sed 's/\[\|\]\| .*//g;s/,/\n/g;s/:.*$//g' ~/.ssh/known_hosts | sort | uniq | tr '\n' ' '`)
@@ -53,6 +57,7 @@ alias media_proxy='ssh -D 1025 media@durknation.gotdns.com -p 337'
 
 #alias mount_server='sshfs -p 69 -o TCPKeepAlive=yes pwner@durknation.gotdns.com:/mnt/ /home/pwner/Desktop/media'
 alias mount_server='sshfs -p 69 -o reconnect -o follow_symlinks pwner@durknation.gotdns.com:/mnt/ /home/pwner/Desktop/media'
+alias mount_eng='sshfs -o reconnect -o follow_symlinks silbaksr@virtulab.ceas1.uc.edu:/home/silbaksr/ /home/pwner/eng'
 
 alias cpv='rsync -poghb --backup-dir=/tmp/rsync -e /dev/null --progress --'
 alias ls='ls --group-directories-first --color=auto -X -h'
