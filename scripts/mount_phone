@@ -1,0 +1,5 @@
+#!/bin/zsh
+
+sudo mount -t vfat -o umask=0022,gid=1002,uid=1000 /dev/disk/by-id/usb-HTC_Android_Phone_HT1B8VJ03661-0:0                       /home/pwner/emmc
+sudo mount -t vfat -o umask=0022,gid=1002,uid=1000 /dev/disk/by-id/usb-HTC_Android_Phone_HT1B8VJ03661-0:1   >/dev/null 2>&1     /home/pwner/sdcard
+sudo mount -t vfat -o umask=0022,gid=1002,uid=1000 /dev/disk/by-id/usb-HTC_Android_Phone_HT1B8VJ03661-0:1-part1                 /home/pwner/sdcard
