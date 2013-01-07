@@ -16,14 +16,20 @@ PATH="${HOME}/.scripts:${PATH}:"
 PATH="${HOME}/.bin:${PATH}:"
 
 # add sbin to PATH so sudo can tab complete it
-PATH="${PATH}:/sbin:/usr/sbin:"
+PATH="/sbin:/usr/sbin:${PATH}:"
 
 # add path for quartus
-PATH="${PATH}:/opt/altera/quartus/bin:"
+PATH="/opt/altera/quartus/bin:${PATH}:"
 PATH="/opt/altera/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin:${PATH}:"
 PATH="/opt/altera/nios2eds/sdk2/bin/:${PATH}:"
 PATH="/opt/altera/nios2eds/bin/:${PATH}:"
 PATH="/opt/altera/nios2eds/:${PATH}:"
+
+# add path for mplabx
+PATH="microchip/mplabx/mplab_ide/bin/:${PATH}:"
+
+# add path for xc16
+PATH="/opt/microchip/xc16/v1.11/bin/:${PATH}:"
 
 # tab complete known hosts
 hosts=(`sed 's/\[\|\]\| .*//g;s/,/\n/g;s/:.*$//g' ~/.ssh/known_hosts | sort | uniq | tr '\n' ' '`)
@@ -42,7 +48,6 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;32'
 #export PATH="/sbin/:/usr/sbin/:/usr/lib/distcc/bin:/home/pwner/scripts/:/opt/Xilinx/12.4/ISE_DS/ISE/bin/lin:${PATH}"
 #export ROOTPATH="/opt/Xilinx/12.4/ISE_DS/ISE/bin/lin:${ROOTPATH}"
 #export PYTHONSTARTUP="/home/pwner/.pythonrc"
- 
 
 #}}}
 
@@ -82,10 +87,9 @@ alias upper='tr "[:lower:]" "[:upper:]"'
 
 # program fpga basys chip
 alias fpga_prog='djtgcfg -d DOnbUsb prog -i 0 -f'
+
 # program fpga basys2 chip
 alias fpga_bprog='djtgcfg prog -d Basys2 -i 0 -f'
-# quartus ide
-alias quartus='/opt/altera/quartus/bin/quartus'
 
 #}}}
 
