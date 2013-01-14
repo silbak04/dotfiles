@@ -209,6 +209,8 @@ globalkeys = awful.util.table.join(
 
     --enable numlock
     awful.util.spawn_with_shell("numlockx on")
+    --java apps
+    awful.util.spawn_with_shell("wmname LG3D")
     --disable screen saver
     --awful.util.spawn_with_shell("xset s noblank")
 
