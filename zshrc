@@ -71,6 +71,7 @@ alias la='ls -la'
 alias grep='grep --color'
 alias egrep='egrep --color'
 alias df='df -h'
+alias locate='locate -i'
 
 # start mplayer in fullscreen mode
 alias mplayer='mplayer -fs'
