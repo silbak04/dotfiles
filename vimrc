@@ -131,7 +131,7 @@ let g:SuperTabLongestHighlight = 1
 " Title bar {{{
 
 let &titleold=getcwd()
-set titlestring=%t 
+set titlestring=%t
 
 if &term == "screen" || &term == "screen-bce" || &term == "screen-256color"
   set t_ts=k
@@ -159,7 +159,7 @@ command Wq wq
 command W w
 command Q q
 
-imap jj <ESC>  
+imap jj <ESC>
 
 " yank from cursor to end of line
 nnoremap Y y$
