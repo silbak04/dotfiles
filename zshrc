@@ -1,7 +1,7 @@
 autoload -U colors && colors
 
 eval $( dircolors -b $HOME/.ls_colors/LS_COLORS )
-  
+
 #{{{ Tab completion
 
 autoload -Uz compinit && compinit
@@ -61,7 +61,7 @@ alias ssh_server='ssh pwner@durknation.gotdns.com -p 69'
 alias ssh_media='ssh media@durknation.gotdns.com -p 337'
 alias ssh_uc='ssh silbaksr@ucfilespace.uc.edu'
 alias ssh_eng='ssh silbaksr@virtulab.ceas1.uc.edu'
-alias media_proxy='ssh -D 1025 media@durknation.gotdns.com -p 337' 
+alias media_proxy='ssh -D 1025 media@durknation.gotdns.com -p 337'
 
 #alias mount_server='sshfs -p 69 -o TCPKeepAlive=yes pwner@durknation.gotdns.com:/mnt/ /home/pwner/Desktop/media'
 alias mount_server='sshfs -p 69 -o reconnect -o follow_symlinks pwner@durknation.gotdns.com:/mnt/ /home/pwner/Desktop/media'
@@ -158,7 +158,7 @@ bindkey "^[[6~" end-of-history
 
 HISTSIZE=50000
 SAVEHIST=50000
-# share history between users 
+# share history between users
 HISTFILE=/home/pwner/.history
 
 # write after each command
