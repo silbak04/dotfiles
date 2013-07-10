@@ -161,6 +161,12 @@ command Q q
 
 imap jj <ESC>
 
+" in case I forget to run sudo for write permissions
+cmap w!! w !sudo tee >/dev/null %
+
+" replace highlighted text
+noremap <C-r> "hy:%s/<C-r>h//g<left><left>
+
 " yank from cursor to end of line
 nnoremap Y y$
 
