@@ -165,7 +165,7 @@ imap jj <ESC>
 cmap w!! w !sudo tee >/dev/null %
 
 " replace highlighted text
-noremap <C-r> "hy:%s/<C-r>h//g<left><left>
+vnoremap <C-r> y:%s/\<<C-r>"\>//g<Left><Left>
 
 " yank from cursor to end of line
 nnoremap Y y$
