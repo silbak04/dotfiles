@@ -33,3 +33,12 @@
 [submodule "vim/bundle/powerline"]
 	path = vim/bundle/powerline
 	url = https://github.com/Lokaltog/vim-powerline.git
+[submodule "vim/bundle/vim-markdown"]
+	path = vim/bundle/vim-markdown
+	url = https://github.com/tpope/vim-markdown.git
+[submodule "vim/bundle/trailertrash"]
+	path = vim/bundle/trailertrash
+	url = https://github.com/csexton/trailertrash.vim.git
+[submodule "vim/bundle/vim-bad-whitespace"]
+	path = vim/bundle/vim-bad-whitespace
+	url = https://github.com/bitc/vim-bad-whitespace.git
