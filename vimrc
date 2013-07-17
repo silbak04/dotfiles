@@ -161,7 +161,7 @@ command Q q
 
 imap jj <ESC>
 
-" in case I forget to run sudo for write permissions
+" force write permissions with sudo
 cmap w!! w !sudo tee >/dev/null %
 
 " replace highlighted text
