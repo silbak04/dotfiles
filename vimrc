@@ -98,6 +98,11 @@ set clipboard=unnamed
 " auto-detect the filetype
 filetype plugin indent on
 
+" look in current directory for 'tags',
+" and work up the tree towards root until
+" one is found
+set tags=./tags;/
+
 " }}}
 
 " Tab completion {{{
