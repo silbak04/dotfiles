@@ -62,6 +62,7 @@ alias ssh_media='ssh media@durknation.gotdns.com -p 337'
 alias ssh_uc='ssh silbaksr@ucfilespace.uc.edu'
 alias ssh_eng='ssh silbaksr@virtulab.ceas1.uc.edu'
 alias media_proxy='ssh -D 1025 media@durknation.gotdns.com -p 337'
+alias uc_proxy='ssh -D 1025 silbaksr@ucfilespace.uc.edu -p 22'
 
 #alias mount_server='sshfs -p 69 -o TCPKeepAlive=yes pwner@durknation.gotdns.com:/mnt/ /home/pwner/Desktop/media'
 alias mount_server='sshfs -p 69 -o reconnect -o follow_symlinks pwner@durknation.gotdns.com:/mnt/ /home/pwner/Desktop/media'
