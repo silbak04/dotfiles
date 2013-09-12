@@ -167,7 +167,7 @@ command W w
 command Q q
 
 " save document after entering command mode
-imap jj <ESC> :w <Cr>
+imap jj <ESC>:w<Cr>
 
 " force write permissions with sudo
 cmap w!! w !sudo tee >/dev/null %
