@@ -1,6 +1,3 @@
-call pathogen#incubate()
-call pathogen#helptags()
-
 " General {{{
 
 " Tabs {{{
@@ -203,7 +200,6 @@ set bg=dark
 " some nice color schemes
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
-colorscheme solarized
 
 " line numbers are grey with black
 highlight LineNr ctermbg=0 ctermfg=235
@@ -241,3 +237,5 @@ autocmd BufReadPost *
   \ if line("'\"") > 0 && line("'\"") <= line("$") |
   \   exe "normal g`\"" |
   \ endif
+
+source $HOME/.vim/bundles.vim
