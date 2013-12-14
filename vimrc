@@ -202,12 +202,6 @@ set bg=dark
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
 
-" line numbers are grey with black
-highlight LineNr ctermbg=0 ctermfg=235
-
-" current line highlighting
-highlight CursorLine ctermbg=234
-
 " highlight white trailing spaces
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
