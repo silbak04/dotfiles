@@ -129,6 +129,7 @@ let g:SuperTabLongestEnhanced = 1
 let g:SuperTabLongestHighlight = 1
 " http://tex.stackexchange.com/questions/62134/how-to-disable-all-vim-latex-mappings
 let g:Imap_UsePlaceHolders = 0
+let g:Tex_SmartKeyDot=0
 
 "}}}
 
