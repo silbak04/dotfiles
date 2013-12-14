@@ -19,11 +19,14 @@ PATH="${HOME}/.bin:${PATH}:"
 PATH="/sbin:/usr/sbin:${PATH}:"
 
 # add path for quartus
-PATH="/opt/altera/quartus/bin:${PATH}:"
+PATH="/opt/altera/quartus/:/opt/altera/quarts/bin:${PATH}:"
 PATH="/opt/altera/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin:${PATH}:"
 PATH="/opt/altera/nios2eds/sdk2/bin/:${PATH}:"
 PATH="/opt/altera/nios2eds/bin/:${PATH}:"
 PATH="/opt/altera/nios2eds/:${PATH}:"
+
+# path for modelsim
+PATH="/mnt/drive_1/opt/modelsim_ase/bin/:${PATH}"
 
 # add path for mplabx
 PATH="microchip/mplabx/mplab_ide/bin/:${PATH}:"
@@ -44,7 +47,9 @@ zstyle ':completion:*:processes' command 'ps -au$USER'
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;32'
 
 #source scripts
-source /home/pwner/.scripts/to
+source $HOME/.scripts/to
+
+CAD_ROOT="/usr/src/lib"
 
 #add sbin to PATH so sudo can tab complete it
 #PATH="/sbin/:/usr/sbin/:${PATH}"
@@ -73,7 +78,7 @@ alias ls='ls --group-directories-first --color=auto -X -h'
 alias ll='ls -l'
 alias la='ls -la'
 alias lt='ls -lt'
-alias grep='grep --color'
+alias grep='grep -i --mmap --color'
 alias egrep='egrep --color'
 alias df='df -h'
 alias locate='locate -i'
@@ -82,7 +87,7 @@ alias locate='locate -i'
 alias mplayer='mplayer -fs'
 
 alias watch='watch --color'
-alias rsync='rsync -avz --stats --progress'
+#alias rsync='rsync -avz --stats --progress'
 alias less='/usr/share/vim/vim73/macros/less.sh'
 
 # redshift to dim screen respect to time of day
@@ -96,6 +101,9 @@ alias fpga_prog='djtgcfg -d DOnbUsb prog -i 0 -f'
 
 # program fpga basys2 chip
 alias fpga_bprog='djtgcfg prog -d Basys2 -i 0 -f'
+
+# magic layout
+alias magic="magic -T/mnt/drive_1/school/vlsi/models/SCN3ME_SUBM.30.tech27"
 
 #}}}
 
@@ -148,7 +156,7 @@ bindkey "^[[6~" end-of-history
 HISTSIZE=50000
 SAVEHIST=50000
 # share history between users
-HISTFILE=/home/pwner/.history
+HISTFILE=$HOME/.history
 
 # write after each command
 setopt INC_APPEND_HISTORY
