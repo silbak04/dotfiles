@@ -85,7 +85,7 @@ alias mount_server='sshfs -p 69 -o reconnect -o follow_symlinks pwner@durknation
 alias mount_eng='sshfs -o reconnect -o follow_symlinks silbaksr@virtulab.ceas1.uc.edu:/home/silbaksr/ /home/pwner/eng'
 
 alias cpv='rsync -poghb --backup-dir=/tmp/rsync -e /dev/null --progress --'
-alias ls='ls --group-directories-first --color=auto -X -h'
+alias ls='ls --group-directories-first --color=auto -X -h -v'
 alias ll='ls -l'
 alias la='ls -la'
 alias lt='ls -lt'
