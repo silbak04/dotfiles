@@ -34,6 +34,17 @@ PATH="microchip/mplabx/mplab_ide/bin/:${PATH}:"
 # add path for xc16
 PATH="/opt/microchip/xc16/v1.11/bin/:${PATH}:"
 
+# android sdk
+PATH="/opt/adt_bundle/sdk/platform-tools/:${PATH}"
+PATH="/opt/adt_bundle/sdk/tools/:${PATH}"
+PATH="/opt/adt_bundle/eclipse/:${PATH}"
+
+# android os
+PATH="${HOME}/.android_os/apktool/:${PATH}"
+PATH="/opt/packages/dex2jar/:${PATH}"
+
+export ANDROID_SWT="/usr/share/swt-3.7/lib"
+
 # tab complete known hosts
 hosts=(`sed 's/\[\|\]\| .*//g;s/,/\n/g;s/:.*$//g' ~/.ssh/known_hosts | sort | uniq | tr '\n' ' '`)
 zstyle ':completion:*:hosts' hosts $hosts
