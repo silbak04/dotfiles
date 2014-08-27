@@ -164,8 +164,8 @@ bindkey "^[[6~" end-of-history
 
 #{{{ History
 
-HISTSIZE=50000
-SAVEHIST=50000
+HISTSIZE=10000000
+SAVEHIST=10000000
 # share history between users
 HISTFILE=$HOME/.history
 
