@@ -18,7 +18,8 @@ export PATH="/media/other/xilinx/ISE_DS/ISE/bin/lin/:${PATH}"
 export PATH="/home/user/eagle-5.10.0/bin/:${PATH}"
 
 # Android SDK
-export PATH="/opt/android-sdk-update-manager/platform-tools/:${PATH}"
+export PATH="/opt/adt_bundle/sdk/platform-tools/:${PATH}"
+export PATH="/opt/adt_bundle/sdk/tools/:${PATH}"
 
 # CUDA
 export LD_LIBRARY_PATH="/opt/cuda/sdk/C/lib:${LD_LIBRARY_PATH}"
@@ -65,3 +66,4 @@ else
 fi
 
 eval $( dircolors -b $HOME/.ls_colors/LS_COLORS )
+export SCIPY_PIL_IMAGE_VIEWER=display
