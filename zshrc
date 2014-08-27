@@ -16,7 +16,7 @@ PATH="${HOME}/.scripts:${PATH}:"
 PATH="${HOME}/.bin:${PATH}:"
 
 # add sbin to PATH so sudo can tab complete it
-PATH="/sbin:/usr/sbin:${PATH}:"
+PATH=".:/sbin:/usr/sbin:${PATH}:"
 
 # add path for quartus
 PATH="/opt/altera/quartus/:/opt/altera/quarts/bin:${PATH}:"
