@@ -19,7 +19,7 @@ PATH="${HOME}/.bin:${PATH}:"
 PATH=".:/sbin:/usr/sbin:${PATH}:"
 
 # add path for quartus
-PATH="/opt/altera/quartus/:/opt/altera/quarts/bin:${PATH}:"
+PATH="/opt/altera/quartus/:/opt/altera/quartus/bin:${PATH}:"
 PATH="/opt/altera/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin:${PATH}:"
 PATH="/opt/altera/nios2eds/sdk2/bin/:${PATH}:"
 PATH="/opt/altera/nios2eds/bin/:${PATH}:"
