@@ -84,12 +84,13 @@ alias uc_proxy='ssh -D 1025 silbaksr@ucfilespace.uc.edu -p 22'
 alias mount_server='sshfs -p 69 -o reconnect -o follow_symlinks pwner@durknation.gotdns.com:/mnt/ /home/pwner/Desktop/media'
 alias mount_eng='sshfs -o reconnect -o follow_symlinks silbaksr@virtulab.ceas1.uc.edu:/home/silbaksr/ /home/pwner/eng'
 
+alias halt='systemctl poweroff'
 alias cpv='rsync -poghb --backup-dir=/tmp/rsync -e /dev/null --progress --'
 alias ls='ls --group-directories-first --color=auto -X -h -v'
 alias ll='ls -l'
 alias la='ls -la'
 alias lt='ls -lt'
-alias grep='grep -i --mmap --color'
+alias grep='grep -i --color'
 alias egrep='egrep --color'
 alias df='df -h'
 alias locate='locate -i'
@@ -159,6 +160,11 @@ bindkey "^[[2~" quoted-insert
 bindkey "^[[3~" delete-char
 bindkey "^[[5~" beginning-of-history
 bindkey "^[[6~" end-of-history
+
+#https://coderwall.com/p/-jvcag/zsh-reverse-history-search-with-regex
+bindkey '^R' history-incremental-pattern-search-backward
+bindkey "^P" vi-up-line-or-history
+bindkey "^N" vi-down-line-or-history
 
 #}}}
 
