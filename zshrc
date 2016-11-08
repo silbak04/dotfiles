@@ -16,7 +16,7 @@ PATH="${HOME}/.scripts:${PATH}:"
 PATH="${HOME}/.bin:${PATH}:"
 
 # add sbin to PATH so sudo can tab complete it
-PATH=".:/sbin:/usr/sbin:${PATH}:"
+PATH=":/sbin:/usr/sbin:${PATH}:"
 
 # add path for quartus
 PATH="/opt/altera/quartus/:/opt/altera/quartus/bin:${PATH}:"
@@ -35,22 +35,27 @@ PATH="microchip/mplabx/mplab_ide/bin/:${PATH}:"
 PATH="/opt/microchip/xc16/v1.11/bin/:${PATH}:"
 
 # android sdk
-PATH="/opt/adt_bundle/sdk/platform-tools/:${PATH}"
-PATH="/opt/adt_bundle/sdk/tools/:${PATH}"
-PATH="/opt/adt_bundle/eclipse/:${PATH}"
+PATH="/opt/adt_bundle/sdk/platform-tools/:${PATH}:"
+PATH="/opt/adt_bundle/sdk/tools/:${PATH}:"
+PATH="/opt/adt_bundle/sdk/:${PATH}:"
+#PATH="/opt/adt_bundle/eclipse/:${PATH}"
 
 # android os
-PATH="${HOME}/.android_os/apktool/:${PATH}"
-PATH="/opt/packages/dex2jar/:${PATH}"
+PATH="${HOME}/.android_os/apktool/:${PATH}:"
+PATH="/opt/packages/dex2jar/:${PATH}:"
 
-export ANDROID_SWT="/usr/share/swt-3.7/lib"
+#export ANDROID_SWT="/usr/share/swt-3.7/lib"
+#export ANDROID_HOME="/opt/adt_bundle/sdk/:${PATH}:"
+
+#eagle
+PATH="/opt/eagle-7.3.0/bin:${PATH}:"
 
 # tab complete known hosts
 hosts=(`sed 's/\[\|\]\| .*//g;s/,/\n/g;s/:.*$//g' ~/.ssh/known_hosts | sort | uniq | tr '\n' ' '`)
 zstyle ':completion:*:hosts' hosts $hosts
 
 # case insensitive completion
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' '+l:|=* r:|=*'
 
 # kill tab completion
 zstyle ':completion:*:processes-names' command 'ps -e -o comm='
@@ -59,14 +64,15 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;32'
 
 #source scripts
 source $HOME/.scripts/to
+source $HOME/.scripts/up
 
 CAD_ROOT="/usr/src/lib"
 
 #add sbin to PATH so sudo can tab complete it
 #PATH="/sbin/:/usr/sbin/:${PATH}"
-#export PATH="/sbin/:/usr/sbin/:/usr/lib/distcc/bin:/home/pwner/scripts/:/opt/Xilinx/12.4/ISE_DS/ISE/bin/lin:${PATH}"
+#export PATH="/sbin/:/usr/sbin/:/usr/lib/distcc/bin:/home/user/scripts/:/opt/Xilinx/12.4/ISE_DS/ISE/bin/lin:${PATH}"
 #export ROOTPATH="/opt/Xilinx/12.4/ISE_DS/ISE/bin/lin:${ROOTPATH}"
-#export PYTHONSTARTUP="/home/pwner/.pythonrc"
+#export PYTHONSTARTUP="/home/user/.pythonrc"
 
 #}}}
 
@@ -80,9 +86,9 @@ alias ssh_eng='ssh silbaksr@virtulab.ceas1.uc.edu'
 alias media_proxy='ssh -D 1025 media@durknation.gotdns.com -p 337'
 alias uc_proxy='ssh -D 1025 silbaksr@ucfilespace.uc.edu -p 22'
 
-#alias mount_server='sshfs -p 69 -o TCPKeepAlive=yes pwner@durknation.gotdns.com:/mnt/ /home/pwner/Desktop/media'
-alias mount_server='sshfs -p 69 -o reconnect -o follow_symlinks pwner@durknation.gotdns.com:/mnt/ /home/pwner/Desktop/media'
-alias mount_eng='sshfs -o reconnect -o follow_symlinks silbaksr@virtulab.ceas1.uc.edu:/home/silbaksr/ /home/pwner/eng'
+#alias mount_server='sshfs -p 69 -o TCPKeepAlive=yes pwner@durknation.gotdns.com:/mnt/ /home/user/Desktop/media'
+alias mount_server='sshfs -p 69 -o reconnect -o follow_symlinks pwner@durknation.gotdns.com:/mnt/ /home/user/Desktop/media'
+alias mount_eng='sshfs -o reconnect -o follow_symlinks silbaksr@virtulab.ceas1.uc.edu:/home/silbaksr/ /home/user/eng'
 
 alias halt='systemctl poweroff'
 alias cpv='rsync -poghb --backup-dir=/tmp/rsync -e /dev/null --progress --'
@@ -144,6 +150,8 @@ setopt NO_FLOW_CONTROL
 # = is needed for emerge
 unsetopt EQUALS
 
+setopt vi
+
 #}}}
 
 #{{{ Key bindings
@@ -154,6 +162,7 @@ unsetopt EQUALS
 
 # home / end keys (press <ctrl+v><_key_bind_you_want_>)
 bindkey "^[OH" beginning-of-line
+bindkey "^[OF" end-of-line
 bindkey "^E" end-of-line
 bindkey "^A" beginning-of-line
 bindkey "^[[2~" quoted-insert
@@ -161,10 +170,20 @@ bindkey "^[[3~" delete-char
 bindkey "^[[5~" beginning-of-history
 bindkey "^[[6~" end-of-history
 
-#https://coderwall.com/p/-jvcag/zsh-reverse-history-search-with-regex
-bindkey '^R' history-incremental-pattern-search-backward
-bindkey "^P" vi-up-line-or-history
-bindkey "^N" vi-down-line-or-history
+# vi bindkeys
+bindkey -M viins 'jj' vi-cmd-mode
+bindkey -M vicmd 'u' undo
+bindkey -M viins '^R' history-incremental-search-backward
+bindkey -M viins '^R' history-incremental-pattern-search-backward
+
+# http://stackoverflow.com/questions/3622943/zsh-vi-mode-status-line
+function zle-line-init zle-keymap-select {
+    RPS1="${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/-- INSERT --}"
+    RPS2=$RPS1
+    zle reset-prompt
+}
+zle -N zle-line-init
+zle -N zle-keymap-select
 
 #}}}
 
